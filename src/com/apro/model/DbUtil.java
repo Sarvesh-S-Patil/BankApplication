@@ -16,7 +16,7 @@ public class DbUtil {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
-			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank","root","root");
+			this.connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/bank", System.getenv().getOrDefault("DB_USERNAME", "root"), System.getenv("DB_PASSWORD"));
 			this.statement = connection.createStatement();
 			
 			System.out.println("Connection Successful");
